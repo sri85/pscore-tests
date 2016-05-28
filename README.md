@@ -1,7 +1,7 @@
 # pscore-tests
 Tests for Gousto Healthy Recipes
 ###Introduction
-This repository contains the tests for [Gousto Healthy Recipes page](https://www.gousto.co.uk/this-weeks-recipes). These tests are based on shareable page object model based framework called [pscore](https://pypi.python.org/pypi/pscore/0.4.8) . 
+This repository contains the tests for [Gousto  Recipes page](https://www.gousto.co.uk/this-weeks-recipes). These tests are based on shareable page object model based framework called [pscore](https://pypi.python.org/pypi/pscore/0.4.8) . 
 pscore stands for Python Selenium Core. These tests use page object model and the model is installed as an dependency before the tests are run  , this allows engineers to share the models across organization, the model for these tests can be found [here](https://github.com/sri85/pscore-model)
 ### Pre-Requisities
 These instructions are for the tests to run on OsX machine
