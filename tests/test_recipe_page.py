@@ -3,7 +3,7 @@ from pscore.nose2.tags import tagger
 from gousto_model.pages.recipepage import RecipePage
 
 
-class TestTheInternet(WebDriverTestCase):
+class TestRecipePage(WebDriverTestCase):
     @tagger('RecipePage')
     def test_can_recipe_page(self):
         """
@@ -39,8 +39,6 @@ class TestTheInternet(WebDriverTestCase):
         recipepage.add_recipe()
         self.assertTrue(recipepage.check_added_recipe())
 
-
-
     @tagger('removerecipe')
     def test_whether_user_is_able_to_remove_recipes_from_basket(self):
         """
@@ -55,23 +53,6 @@ class TestTheInternet(WebDriverTestCase):
         recipepage = RecipePage(self.driver).load()
         recipepage.add_recipe()
         recipepage.remove_recipe()
-
-
-    @tagger('info')
-    def test_whether_user_is_able_to_see_more_info_for_recipe(self):
-        """
-
-        Scenario: As a Gousto User i should be able to read more information about the recipe i need to add to the
-        basket.
-
-        Test Description: This test emulates a scenario when a user eho tries to read more about the recipe to
-        get more details.
-
-        """
-        recipepage = RecipePage(self.driver).load()
-        recipepage.show_info()
-        recipepage.close_info()
-
 
     @tagger('checkout')
     def test_user_is_able_to_checkout_after_adding_atleast_two_recipes(self):
@@ -114,7 +95,7 @@ class TestTheInternet(WebDriverTestCase):
         recipepage.add_two_more_portions()
         self.assertTrue(recipepage.verify_portion_text(4))
 
-    @tagger('test1')
+    @tagger('alert-message')
     def test_whether_user_sees_alert_message_when_trying_to_checkout_with_empty_cart(self):
         """http://the-internet.herokuapp.com/login
 
@@ -132,8 +113,8 @@ class TestTheInternet(WebDriverTestCase):
         recipepage.checkout()
         self.assertTrue(recipepage.verify_alert_message())
 
-    @tagger('test')
-    def test_logout_redirects_with_message(self):
+    @tagger('modify-portions')
+    def test_whether_user_is_able_to_modify_recipe_portions(self):
         """After logging out, the Login page is shown with a success message
 
         Write a test and re-use/expand your model for the following:
@@ -145,12 +126,9 @@ class TestTheInternet(WebDriverTestCase):
         Confirm you are logged out
         Confirm log out message is shown : "You logged out of the secure area!"
         """
-        from time import sleep
         recipepage = RecipePage(self.driver).load()
         recipepage.add_recipe()
         recipepage.add_recipe()
         recipepage.add_recipe()
-        sleep(3)
         recipepage.remove_recipe()
-
         self.assertTrue(recipepage.verify_portion_text(4))
