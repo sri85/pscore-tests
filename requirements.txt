@@ -1,0 +1,4 @@
+# Model includes Core- Installs the gousto model
+git+https://github.com/sri85/pscore-model.git
+# Installs nose2 test runner
+git+https://github.com/nose-devs/nose2.git
