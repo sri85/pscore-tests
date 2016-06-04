@@ -97,15 +97,8 @@ class TestRecipePage(WebDriverTestCase):
 
     @tagger('alert-message')
     def test_whether_user_sees_alert_message_when_trying_to_checkout_with_empty_cart(self):
-        """http://the-internet.herokuapp.com/login
-
-        Write a test and complete the model so you can do the following:
-        Load the page
-        Enter correct Username and Password
-        Select Login
-        confirm the user is redirected to /secure
-        Confirm Secure Area message is displayed
-        (You might want to create a new PAGE OBJECT for the secure area)
+        """
+        Scenario: Check whether the user is able to see the alert message 
         """
 
         recipepage = RecipePage(self.driver).load()
@@ -115,16 +108,8 @@ class TestRecipePage(WebDriverTestCase):
 
     @tagger('modify-portions')
     def test_whether_user_is_able_to_modify_recipe_portions(self):
-        """After logging out, the Login page is shown with a success message
-
-        Write a test and re-use/expand your model for the following:
-        NOTE: You might want to wrap your valid login methods into a helper method to keep your code succinct e.g. page.perform_valid_login()
-
-        Log in
-        Confirm Log in was successful
-        Logout
-        Confirm you are logged out
-        Confirm log out message is shown : "You logged out of the secure area!"
+        """Scenario: Check whether the user is able to modify recipe portions, the test adds 6 portions of a recipe
+        and then remove one portion are resulting in 4 portions in the basket.
         """
         recipepage = RecipePage(self.driver).load()
         recipepage.add_recipe()
