@@ -5,7 +5,7 @@ from gousto_model.pages.recipepage import RecipePage
 
 class TestRecipePage(WebDriverTestCase):
     @tagger('RecipePage')
-    def test_can_recipe_page(self):
+    def test_can_load_recipe_page(self):
         """
         Test Description: This is a basic test which checks whether the recipe page is
         loaded completely.
